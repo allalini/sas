@@ -1,1 +1,1 @@
-<?php header('Location: https://web182.charliewallin.com/sas/public/'); ?>
+<?php header('Location: http://localhost/web182/sas/public/'); ?>
