@@ -1,1 +1,1 @@
-<?php header('Location: https://web182.thisweirdthing.fun/sas/public/'); ?>
+<?php header('Location: https://web182.thisweirdthing.fun/public/'); ?>
