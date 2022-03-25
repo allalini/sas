@@ -43,7 +43,7 @@ require_once(SHARED_PATH . '/salamander-header.php')
 
 <h1>Salamanders</h1>
 
-  <a href="<?php echo url_for('/public/salamanders/new.php');?>">Create Salamander</a>
+  <a href="<?php echo url_for('/salamanders/new.php');?>">Create Salamander</a>
 
 <table>
   <tr>
@@ -70,7 +70,7 @@ require_once(SHARED_PATH . '/salamander-header.php')
           <td><?= $salamander['id'] ?></td>
     	    <td><?= $salamander['salamanderName'] ?></td>
           <td><a class="action" href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
-          <td><a class="action" href="">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/salamanders/edit.php');?>">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
     	  </tr>
       <?php } ?>
