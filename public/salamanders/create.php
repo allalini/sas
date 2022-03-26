@@ -9,7 +9,7 @@ $salamander_name = $_POST['salamander_name'] ?? '';
 
 echo "Form parameters<br />";
 echo "Salamander name: " . $salamander_name . "<br />";
-} else {
+} if(is_get_request()) {
   redirect_to(url_for('/salamanders/new.php'));
 }
 ?>
