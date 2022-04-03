@@ -20,6 +20,11 @@
     ------------------------------------------------------------------ */
 require_once('../../private/initialize.php');
 
+$sql = "SELECT * FROM salamanders ";
+$sql .= "ORDER BY name ASC";
+$salamander_set = find_all_salamanders();
+
+
 $salamanders = [
   [
     'id' => '1',
