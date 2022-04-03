@@ -59,21 +59,10 @@ require_once(SHARED_PATH . '/salamander-header.php')
     <th>&nbsp;</th>
   </tr>
 
-      <?php foreach($salamanders as $salamander) { ?>
+      <?php while($salamander = mysqli_fetch_assoc($salamander_set)) { ?>
         <tr>
-          <!------------------------------------------------------------------
-        Your code here
-        Delete this line.
-
-        Add the table data for the
-        row 1: salamander id
-        row 2: salamander name
-        rows 3, 4, and 5 are already done for you.
-        
-        You will need to reference the salamander id and name from the salamanders array
-      ------------------------------------------------------------------>
-          <td><?= $salamander['id'] ?></td>
-    	    <td><?= $salamander['salamanderName'] ?></td>
+          <td><?= h($salamander['id']); ?></td>
+    	    <td><?= h($salamander['name']); ?></td>
           <td><a class="action" href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/salamanders/edit.php');?>">Edit</a></td>
           <td><a class="action" href="">Delete</a></td>
