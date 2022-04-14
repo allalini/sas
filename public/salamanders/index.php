@@ -20,12 +20,12 @@ $salamanders = [
 
 $page_title = 'Salamanders';
 
-require_once(SHARED_PATH . '/salamander-header.php')
+require_once(SHARED_PATH . '../salamander-header.php')
 ?>
 
 <h1>Salamanders</h1>
 
-  <a href="<?php echo url_for('/salamanders/new.php');?>">Create Salamander</a>
+  <a href="<?php echo url_for('../salamanders/new.php');?>">Create Salamander</a>
 
 <table>
   <tr>
