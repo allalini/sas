@@ -2,28 +2,23 @@
 
 require_once('../../private/initialize.php');
 
-$test = $_GET['test'] ?? '';
-
-if ($test == '404') {
-  error_404();
-} elseif ($test == '500') {
-  error_500();
-} elseif($test == 'redirect') {
-  redirect_to(url_for('salamanders/index.php'));
-}
 ?>
 
 <?php $page_title = 'Create Salamander'; ?>
 <?php include(SHARED_PATH . '../salamander-header.php'); ?>
 
-  <a class="back-link" href="<?php echo url_for('/salamanders/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/salamanders/index.php'); ?>">&laquo; Back to Salamanders</a>
     <h1>Create Salamander</h1>
 
     <form action="<?php echo url_for('/salamanders/create.php'); ?>" method="post">
-      <dl>
-        <dt>Salamander Name</dt>
-        <dd><input type="text" name="salamander_name" value=""></dd>
-      </dl>
+      
+        <label>Name:</label><br>
+        <input type="text" name="salamander_name" value=""><br><br>
+        <label for="habitat">Habitat:</label><br>
+        <textarea name="salamander_habitat" id="habitat" value="" rows="4" cols="50"></textarea><br><br>
+        <label for="description">Description:</label><br>
+        <textarea name="salamander_description" id="description" value="" rows="4" cols="50"></textarea><br><br>
+      
         <input type="submit" value="Create Salamander">
     </form>
 
