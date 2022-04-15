@@ -13,11 +13,11 @@ require_once('../../private/initialize.php');
     <form action="<?php echo url_for('/salamanders/create.php'); ?>" method="post">
       
         <label>Name:</label><br>
-        <input type="text" name="salamander_name" value=""><br><br>
+        <input type="text" name="name" value=""><br><br>
         <label for="habitat">Habitat:</label><br>
-        <textarea name="salamander_habitat" id="habitat" value="" rows="4" cols="50"></textarea><br><br>
+        <textarea name="habitat" id="habitat" value="" rows="4" cols="50"></textarea><br><br>
         <label for="description">Description:</label><br>
-        <textarea name="salamander_description" id="description" value="" rows="4" cols="50"></textarea><br><br>
+        <textarea name="description" id="description" value="" rows="4" cols="50"></textarea><br><br>
       
         <input type="submit" value="Create Salamander">
     </form>
