@@ -1,9 +1,8 @@
 <?php
-
 require_once('../../private/initialize.php');
 
 $page_title = 'Delete Salamander';
-include(SHARED_PATH . '/salamander-header.php');
+include(SHARED_PATH . '../salamander-header.php');
 
 if (!isset($_GET['id'])) {
   redirect_to(url_for('salamanders/index.php'));
@@ -31,4 +30,4 @@ else {
   <input type="submit" value="Delete Salamander">
 </form>
 
-<?php include(SHARED_PATH . '/salamander-footer.php'); ?>
+<?php include(SHARED_PATH . '../salamander-footer.php'); ?>
