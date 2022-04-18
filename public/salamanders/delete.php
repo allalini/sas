@@ -2,7 +2,7 @@
 require_once('../../private/initialize.php');
 
 $page_title = 'Delete Salamander';
-include(SHARED_PATH . '../salamander-header.php');
+include(SHARED_PATH . '/salamander-header.php');
 
 if (!isset($_GET['id'])) {
   redirect_to(url_for('salamanders/index.php'));

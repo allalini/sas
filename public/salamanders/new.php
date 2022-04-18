@@ -5,7 +5,7 @@ require_once('../../private/initialize.php');
 ?>
 
 <?php $page_title = 'Create Salamander'; ?>
-<?php include(SHARED_PATH . '../salamander-header.php'); ?>
+<?php include(SHARED_PATH . '/salamander-header.php'); ?>
 
   <a class="back-link" href="<?php echo url_for('/salamanders/index.php'); ?>">&laquo; Back to Salamanders</a>
     <h1>Create Salamander</h1>
