@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 if (is_post_request()) {
-  delete_subject($id);
+  delete_salamander($id);
   redirect_to(url_for('salamanders/index.php'));
 }
 
