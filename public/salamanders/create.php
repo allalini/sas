@@ -11,8 +11,12 @@ $salamander ['habitat'] = $_POST['habitat'] ?? '';
 $salamander ['description'] = $_POST['description'] ?? '';
 
 $result = insert_salamander($salamander);
-$new_id = mysqli_insert_id($db);
+if($result === true) {
+  $new_id = mysqli_insert_id($db);
 redirect_to(url_for('salamanders/show.php?id=' . $new_id));
+} else {
+  $errors = $result;
+}
 
 } elseif(is_get_request()) {
   redirect_to(url_for('salamanders/new.php'));

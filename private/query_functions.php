@@ -27,7 +27,7 @@ function insert_salamander($salamander)
 {
   global $db;
 
-  validate_salamander($salamander);
+  $errors = validate_salamander($salamander);
   if(!empty($errors)) {
     return $errors;
   }

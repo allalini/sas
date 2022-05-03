@@ -18,7 +18,7 @@ if (is_post_request()) {
     redirect_to(url_for('salamanders/show.php?id=' . $id));
   } else {
     $errors = $result;
-    var_dump($errors);
+    // var_dump($errors);
   }
 
 } else {
@@ -30,6 +30,8 @@ if (is_post_request()) {
 <a class="back-link" href="<?php echo url_for('salamanders/index.php'); ?>">&laquo; Back to List</a>
 
 <h1>Edit Salamander</h1>
+
+<?php echo display_errors($errors); ?>
 
 <form action="<?php echo url_for('salamanders/edit.php?id=' . h(u($id))); ?>" method="post">
   <label>Name:</label><br>
