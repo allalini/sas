@@ -1,6 +1,7 @@
 <?php
 
-function find_all_salamanders() {
+function find_all_salamanders()
+{
   global $db;
   $sql = "SELECT * FROM salamander ";
   $sql .= "ORDER BY name ASC";
@@ -9,7 +10,8 @@ function find_all_salamanders() {
   return $result;
 }
 
-function find_salamander_by_id($id) {
+function find_salamander_by_id($id)
+{
   global $db;
 
   $sql = "SELECT * FROM salamander ";
@@ -21,31 +23,41 @@ function find_salamander_by_id($id) {
   return $salamander;
 }
 
-function insert_salamander($salamander) {
+function insert_salamander($salamander)
+{
   global $db;
+
+  validate_salamander($salamander);
+  if(!empty($errors)) {
+    return $errors;
+  }
 
   $sql = "INSERT INTO salamander ";
   $sql .= "(name, habitat, description) ";
   $sql .= "VALUES (";
-  $sql .= "'" . $salamander ['name'] . "',";
-  $sql .= "'" . $salamander ['habitat'] . "',";
-  $sql .= "'" . $salamander ['description'] . "'";
+  $sql .= "'" . $salamander['name'] . "',";
+  $sql .= "'" . $salamander['habitat'] . "',";
+  $sql .= "'" . $salamander['description'] . "'";
   $sql .= ")";
   $result = mysqli_query($db, $sql);
 
-  if($result) {
+  if ($result) {
     return true;
-  }
-
-  else {
+  } else {
     echo mysqli_error($db);
     db_disconnect($db);
     exit;
   }
 }
 
-function update_salamander($salamander) {
+function update_salamander($salamander)
+{
   global $db;
+
+  $errors = validate_salamander($salamander);
+  if(!empty($errors)) {
+    return $errors;
+  }
 
   $sql = "UPDATE salamander SET ";
   $sql .= "name='" . $salamander['name'] . "', ";
@@ -65,7 +77,8 @@ function update_salamander($salamander) {
   }
 }
 
-function delete_salamander($id) {
+function delete_salamander($id)
+{
   global $db;
 
   $sql = "DELETE FROM salamander ";
@@ -74,12 +87,31 @@ function delete_salamander($id) {
 
   $result = mysqli_query($db, $sql);
 
-  if($result) {
+  if ($result) {
     return true;
-  }
-  else {
+  } else {
     echo mysqli_error($db);
     db_disconnect($db);
     exit;
   }
+}
+
+function validate_salamander($salamander)
+{
+  $errors = [];
+
+  if (is_blank($salamander['name'])) {
+    $errors[] = "Name cannot be blank.";
+  }
+  if (!has_length($salamander['name'], ['min' => 2, 'max' => 255])) {
+    $errors[] = "Name must be between 2 and 255 characters.";
+  }
+  if (is_blank($salamander['description'])) {
+    $errors[] = "Description cannot be blank.";
+  }
+  if (is_blank($salamander['habitat'])) {
+    $errors[] = "Habitat cannot be blank.";
+  }
+
+  return $errors;
 }
